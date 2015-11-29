@@ -1,0 +1,16 @@
+{
+  "name": "data-structures-algorithms-tests",
+  "version": "0.0.0",
+  "description": "Tests for data-structures-algorithms",
+  "author": {
+    "name": "Pedro Ivan Lopez",
+    "email": "m@pedroivanlopez.com",
+    "url": "http://pedroivanlopez.com"
+  },
+  "dependencies": {
+    "data-structures-algorithms": "file:../../src/data-structures-algorithms"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  }
+}

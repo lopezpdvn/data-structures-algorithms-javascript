@@ -1,0 +1,11 @@
+{
+  "name": "data-structures-algorithms",
+  "version": "0.0.0",
+  "description": "Data structures and algorithms in JavaScript",
+  "main": "index.js",
+  "author": {
+    "name": "Pedro Ivan Lopez",
+    "email": "m@pedroivanlopez.com",
+    "url": "http://pedroivanlopez.com"
+  }
+}
