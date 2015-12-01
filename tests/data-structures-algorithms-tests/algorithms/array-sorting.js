@@ -9,11 +9,10 @@ var dsalg = require(path.join(rootPkgPrefix,
     .replace(/^file:/, "")));
 
 describe('Array Sorting', function () {
-    var ArraySorting = dsalg.algorithms.ArraySorting;
     var unsortedIntArray = [9, 6, 2, 5, 1, 0, 10];
     var sortedIntArray = [0, 1, 2, 5, 6, 9, 10];
     it('Insertion Sort', function () {
-        ArraySorting.insertionSort(unsortedIntArray);
+        unsortedIntArray.insertionSort();
         assert.deepEqual(unsortedIntArray, sortedIntArray);
     });
 });
