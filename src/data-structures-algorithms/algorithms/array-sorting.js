@@ -4,7 +4,7 @@
 function ArraySorting() {
 }
 
-ArraySorting.prototype.insertionSort = function (arr) {
+ArraySorting.insertionSort = function (arr) {
     var i, o;
     for (o = 1; o < arr.length; o++) {
         for (i = o; i > 0 && arr[i] < arr[i - 1]; i--) {
