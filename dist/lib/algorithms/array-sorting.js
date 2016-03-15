@@ -1,5 +1,7 @@
-﻿// ArraySorting
-const ArraySorting = {};
+"use strict";
+
+// ArraySorting
+var ArraySorting = {};
 
 ArraySorting.insertionSort = function (arr) {
     var i, o;
@@ -11,10 +13,10 @@ ArraySorting.insertionSort = function (arr) {
         }
         // Invariant: arr[:o] is sorted
     }
-}
+};
 
 Array.prototype.insertionSort = function () {
     ArraySorting.insertionSort(this);
-}
+};
 
 exports.ArraySorting = ArraySorting;

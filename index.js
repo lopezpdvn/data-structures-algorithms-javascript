@@ -1,1 +1,3 @@
-﻿exports["algorithms"] = require('./src/lib/algorithms/array-sorting');
+﻿const SRC_LIB = './dist/lib';
+
+exports.algorithms = require(SRC_LIB + '/algorithms/array-sorting');
