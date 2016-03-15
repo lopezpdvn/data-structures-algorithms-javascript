@@ -31,14 +31,26 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="algorithms\array-sorting.js" />
     <Compile Include="index.js" />
+    <Compile Include="src\lib\algorithms\array-sorting.js" />
+    <Compile Include="test\lib\algorithms\array-sorting.js">
+      <TestFramework>Mocha</TestFramework>
+    </Compile>
+    <Content Include="LICENSE" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="algorithms\" />
-    <Folder Include="data-structures\" />
+    <Folder Include="src\" />
+    <Folder Include="src\bin\" />
+    <Folder Include="src\lib\" />
+    <Folder Include="src\lib\algorithms\" />
+    <Folder Include="src\lib\data-structures\" />
+    <Folder Include="test\" />
+    <Folder Include="test\bin\" />
+    <Folder Include="test\lib\" />
+    <Folder Include="test\lib\algorithms\" />
+    <Folder Include="test\lib\data-structures\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

@@ -1,0 +1,1 @@
+﻿exports["algorithms"] = require('./src/lib/algorithms/array-sorting');
