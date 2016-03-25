@@ -1,11 +1,13 @@
-﻿// ArraySorting
+﻿'use strict';
+
+// ArraySorting
 const ArraySorting = {};
 
-ArraySorting.insertionSort = function (arr) {
-    var i, o;
+ArraySorting.insertionSort = arr => {
+    let i, o;
     for (o = 1; o < arr.length; o++) {
         for (i = o; i > 0 && arr[i] < arr[i - 1]; i--) {
-            var tmp = arr[i];
+            let tmp = arr[i];
             arr[i] = arr[i - 1];
             arr[i - 1] = tmp;
         }

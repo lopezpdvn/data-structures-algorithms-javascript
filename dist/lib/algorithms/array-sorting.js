@@ -1,10 +1,12 @@
-"use strict";
+'use strict';
 
 // ArraySorting
+
 var ArraySorting = {};
 
 ArraySorting.insertionSort = function (arr) {
-    var i, o;
+    var i = void 0,
+        o = void 0;
     for (o = 1; o < arr.length; o++) {
         for (i = o; i > 0 && arr[i] < arr[i - 1]; i--) {
             var tmp = arr[i];
