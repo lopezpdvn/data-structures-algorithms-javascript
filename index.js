@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-const SRC_LIB = './dist/lib';
+const SRC_LIB = './src/lib';
 
 exports.algorithms = {
     array_sorting: require(SRC_LIB + '/algorithms/array-sorting'),

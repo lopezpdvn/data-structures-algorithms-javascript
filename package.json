@@ -10,14 +10,13 @@
   },
   "scripts": {
     "compile": "babel --presets es2015 -d dist/ src/",
-    "test": "npm run compile && mocha --recursive --compilers js:babel-core/register --require babel-polyfill test",
+    "test": "npm run compile && mocha --recursive --compilers js:babel-core/register test",
     "push": "git push origin master"
   },
   "devDependencies": {
     "mocha": "latest",
     "babel-core": "latest",
     "babel-preset-es2015": "latest",
-    "babel-cli": "latest",
-    "babel-polyfill": "latest"
+    "babel-cli": "latest"
   }
 }
