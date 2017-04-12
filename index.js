@@ -10,5 +10,6 @@ exports.algorithms = {
 exports.data_structures = {
     linked_list: {
         singly_linked_list: require(SRC_LIB + '/data_structures/linked_list/singly_linked_list')
-    }
+    },
+    built_in: require(SRC_LIB + '/data_structures/built_in')
 };
