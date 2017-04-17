@@ -11,5 +11,11 @@ exports.data_structures = {
     linked_list: {
         singly_linked_list: require(SRC_LIB + '/data_structures/linked_list/singly_linked_list')
     },
+    stack: {
+        stack: require(SRC_LIB + '/data_structures/stack/stack')
+    },
+    tree: {
+        binary_tree: require(SRC_LIB + '/data_structures/tree/binary_tree')
+    },
     built_in: require(SRC_LIB + '/data_structures/built_in')
 };
