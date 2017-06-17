@@ -3,15 +3,12 @@
 // ArraySorting
 const ArraySorting = {};
 
-ArraySorting.insertionSort = arr => {
-    let i, o;
-    for (o = 1; o < arr.length; o++) {
-        for (i = o; i > 0 && arr[i] < arr[i - 1]; i--) {
-            let tmp = arr[i];
-            arr[i] = arr[i - 1];
-            arr[i - 1] = tmp;
+ArraySorting.insertionSort = a => {
+    for(let o = 1; o < a.length; o++) {
+        for(let i = o; i > 0 && a[i] < a[i-1]; i--) {
+            [a[i], a[i-1]] = [a[i-1], a[i]]
         }
-        // Invariant: arr[:o] is sorted
+        // Invariant: a[:o] is sorted
     }
 }
 
