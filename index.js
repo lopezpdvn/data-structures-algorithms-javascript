@@ -17,5 +17,8 @@ exports.data_structures = {
     tree: {
         binary_tree: require(SRC_LIB + '/data_structures/tree/binary_tree')
     },
+    array: {
+        sorted_array: require(SRC_LIB + '/data_structures/array/sorted_array')
+    },
     built_in: require(SRC_LIB + '/data_structures/built_in')
 };
