@@ -4,9 +4,9 @@
   "description": "Data structures and algorithms in JavaScript",
   "main": "index.js",
   "license": "MIT",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/lopezpdvn/data-structures-algorithms-javascript"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lopezpdvn/data-structures-algorithms-javascript"
   },
   "author": {
     "name": "Pedro Ivan Lopez",
