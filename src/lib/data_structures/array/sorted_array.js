@@ -19,6 +19,15 @@ class SortedArrayNumber {
     [Symbol.iterator]() {
         return this._arr[Symbol.iterator]();
     }
+
+    static InsertionSort(a, n) {
+        for(let o = 1; o < n; o++) {
+            for(let i = o; i > 0 && a[i] < a[i-1]; i--) {
+                [a[i], a[i-1]] = [a[i-1], a[i]];
+            }
+        }
+        // Invariant: a[:o] sorted
+    }
 }
 
 exports.SortedArrayNumber = SortedArrayNumber;

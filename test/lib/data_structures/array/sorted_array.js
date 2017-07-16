@@ -27,4 +27,11 @@ describe('Sorted Array', function() {
         assert.deepEqual(Array.from(sa), sortedArr);
         assert.strictEqual(sa.count, arrLen);
     });
+
+    it('Insertion Sort', function() {
+        const unsortedArr = [9, 6, 2, 5, 1, 0, 10];
+        const sortedArr = [0, 1, 2, 5, 6, 9, 10];
+        SortedArrayNumber.InsertionSort(unsortedArr, unsortedArr.length);
+        assert.deepEqual(sortedArr, unsortedArr);
+    });
 });
