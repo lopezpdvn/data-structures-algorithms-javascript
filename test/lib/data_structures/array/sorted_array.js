@@ -34,4 +34,12 @@ describe('Sorted Array', function() {
         SortedArrayNumber.InsertionSort(unsortedArr, unsortedArr.length);
         assert.deepEqual(sortedArr, unsortedArr);
     });
+
+    it('Binary Search Recursive', function() {
+        const unsortedArr = [888, 222, 333, 0, 999, 777, 555, 111, 666, 444];
+        const sortedArr = [0, 111, 222, 333, 444, 555, 666, 777, 888, 999];
+        const maxLen = sortedArr.length;
+        const a = new SortedArrayNumber(maxLen);
+        assert.strictEqual(a.count, 0);
+    });
 });
