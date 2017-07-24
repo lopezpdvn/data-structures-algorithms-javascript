@@ -37,7 +37,7 @@ describe('Directed Graph Adjacency List', function() {
 
     it('Instantiation', function() {
         dirGraph = new DirectedGraphAdjacencyList();
-        nodes.forEach(x => dirGraph.add(x));
+        //nodes.forEach(x => dirGraph.add(x));
         assert.ok(dirGraph instanceof DirectedGraphAdjacencyList);
     });
 });
