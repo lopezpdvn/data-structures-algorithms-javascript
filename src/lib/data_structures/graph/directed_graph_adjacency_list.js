@@ -6,12 +6,13 @@ const State = graph.State;
 
 class DirectedGraphAdjacencyList {
     constructor(nodes = null, stack = [], queue = []) {
-        if(nodes) {
-            this.count = nodes.length;
-        }
-        else {
-            this.count = 0;
-        }
+        this.count = 0;
+        this.nodes = [];
+    }
+
+    add(node) {
+        this.nodes.push(node);
+        this.count++;
     }
 }
 
