@@ -1,7 +1,6 @@
 'use strict';
 
 const graph = require('./graph');
-
 const State = graph.State;
 
 class DirectedGraphAdjacencyList {
@@ -35,6 +34,24 @@ class DirectedGraphAdjacencyList {
             node.state = State.visited;
             for(let i of node.adjacentReverse()) {
                 stack.push(i);
+            }
+        }
+    }
+
+    static *breadthFirstTraversal(node, queue = []) {
+        if(!node && node.state == node.visited)
+            return;
+        yield node;
+        node.state = State.visited;
+        queue.unshift(node);
+        while(queue.length) {
+            node = queue.pop();
+            for(let i of node) {
+                if(i.state == State.visited)
+                    continue;
+                yield i;
+                i.state = State.visited;
+                queue.unshift(i);
             }
         }
     }

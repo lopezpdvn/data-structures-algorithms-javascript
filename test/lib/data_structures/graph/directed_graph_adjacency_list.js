@@ -95,4 +95,9 @@ describe('Directed Graph Adjacency List', function() {
         traversalTest(graph0Graph.constructor.depthFirstTraversalIterative,
             'dft-str');
     });
+
+    it('Breadth First Traversal', function() {
+        traversalTest(graph0Graph.constructor.breadthFirstTraversal,
+            'bft-str');
+    });
 });
