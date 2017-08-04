@@ -8,7 +8,7 @@ const BinaryTree = dsalg.data_structures.tree.binary_tree.BinaryTree;
 const Node = dsalg.data_structures.tree.binary_tree.Node;
 
 describe('Binary Tree', function() {
-    const _intTree = new BinaryTree(new Node(
+    const _numTree = new BinaryTree(new Node(
         100,
 
         new Node(
@@ -19,11 +19,11 @@ describe('Binary Tree', function() {
                 new Node(110), null),
             new Node(175, null, null)
          )));
-    const intTree = { tree: _intTree };
-    intTree.bft = [100, 50, 150, 25, 75, 125, 175, 110];
-    intTree['dft-post'] = [25, 75, 50, 110, 125, 175, 150, 100];
-    intTree['dft-pre'] = [100, 50, 25, 75, 150, 125, 110, 175];
-    intTree['dft-in'] = [25, 50, 75, 100, 110, 125, 150, 175];
+    const numTree = { tree: _numTree };
+    numTree.bft = [100, 50, 150, 25, 75, 125, 175, 110];
+    numTree['dft-post'] = [25, 75, 50, 110, 125, 175, 150, 100];
+    numTree['dft-pre'] = [100, 50, 25, 75, 150, 125, 110, 175];
+    numTree['dft-in'] = [25, 50, 75, 100, 110, 125, 150, 175];
 
     const _J = new Node('J');
     const _I = new Node(_J, null, 'I');
@@ -50,6 +50,18 @@ describe('Binary Tree', function() {
     charTree['dft-post'] = 'JIHDMLKEBFSRNQPOGCA';
     charTree['dft-pre'] = 'ABDHIJEKLMCFGNRSOPQ';
     charTree['dft-in'] = 'HJIDBLMKEAFCSRNGOPQ';
+
+    function traversalTest(traversalAlgorithm, traversalType) {
+        const traversalStrSeq = '';
+        const traversalStrSeqCorrect = charTree[traversalType];
+        [...traversalAlgorithm(charTree.tree.root)].forEach(node =>
+            traversalStrSeq += node.vertex);
+        assert.strictEqual(traversalStrSeq, traversalStrSeqCorrect);
+
+        const traversalNumSeqCorrect = numTree[traversalType];
+        const traversalNumSeq = [...traversalAlgorithm(numTree.tree.root)];
+        assert.deepStrictEqual(traversalNumSeq, traversalNumSeqCorrect);
+    }
 
     it('Instantiation', function() {
         const bt = new BinaryTree();
