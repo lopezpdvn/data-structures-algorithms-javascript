@@ -5,7 +5,25 @@ class BinaryTree {
         this.root = root;
     }
 
-    static inOrderDFTRecursive(node) {
+    static *postOrderTraversalIterative(node, stack = []) {
+        let last = null;
+        while(node || stack.length) {
+            if(node) {
+                stack.push(node);
+                node = node.left;
+            }
+            else {
+                let peek = stack[stack.length-1];
+                if(peek.right && peek.right !== last) {
+                    node = peek.right;
+                }
+                else {
+                    last = stack.pop();
+                    yield last;
+                    node = null;
+                }
+            }
+        }
     }
 }
 

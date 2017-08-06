@@ -26,24 +26,24 @@ describe('Binary Tree', function() {
     numTree['dft-in'] = [25, 50, 75, 100, 110, 125, 150, 175];
 
     const _J = new Node('J');
-    const _I = new Node(_J, null, 'I');
-    const _H = new Node(null, _I, 'H');
-    const _D = new Node(_H, null, 'D');
-    const _M = new Node(null, null, 'M');
-    const _L = new Node(null, _M, 'L');
-    const _K = new Node(_L, null, 'K');
-    const _E = new Node(_K, null, 'E');
-    const _B = new Node(_D, _E, 'B');
-    const _F = new Node(null, null, 'F');
-    const _S = new Node(null, null, 'S');
-    const _R = new Node(_S, null, 'R');
-    const _N = new Node(_R, null, 'N');
-    const _Q = new Node(null, null, 'Q');
-    const _P = new Node(null, _Q, 'P');
-    const _O = new Node(null, _P, 'O');
-    const _G = new Node(_N, _O, 'G');
-    const _C = new Node(_F, _G, 'C');
-    const _A = new Node(_B, _C, 'A');
+    const _I = new Node('I', _J, null);
+    const _H = new Node('H', null, _I);
+    const _D = new Node('D', _H, null);
+    const _M = new Node('M', null, null);
+    const _L = new Node('L', null, _M);
+    const _K = new Node('K', _L, null);
+    const _E = new Node('E', _K, null);
+    const _B = new Node('B', _D, _E);
+    const _F = new Node('F', null, null);
+    const _S = new Node('S', null, null);
+    const _R = new Node('R', _S, null);
+    const _N = new Node('N', _R, null);
+    const _Q = new Node('Q', null, null);
+    const _P = new Node('P', null, _Q);
+    const _O = new Node('O', null, _P);
+    const _G = new Node('G', _N, _O);
+    const _C = new Node('C', _F, _G);
+    const _A = new Node('A', _B, _C);
     const _charTree = new BinaryTree(_A);
     const charTree = { tree: _charTree };
     charTree['bft'] = 'ABCDEFGHKNOILRPJMSQ';
@@ -52,19 +52,28 @@ describe('Binary Tree', function() {
     charTree['dft-in'] = 'HJIDBLMKEAFCSRNGOPQ';
 
     function traversalTest(traversalAlgorithm, traversalType) {
-        const traversalStrSeq = '';
+        let traversalStrSeq = '';
         const traversalStrSeqCorrect = charTree[traversalType];
         [...traversalAlgorithm(charTree.tree.root)].forEach(node =>
             traversalStrSeq += node.vertex);
         assert.strictEqual(traversalStrSeq, traversalStrSeqCorrect);
 
         const traversalNumSeqCorrect = numTree[traversalType];
-        const traversalNumSeq = [...traversalAlgorithm(numTree.tree.root)];
+        const traversalNumSeq =
+            [...traversalAlgorithm(numTree.tree.root)].map(x => x.vertex);
         assert.deepStrictEqual(traversalNumSeq, traversalNumSeqCorrect);
     }
 
     it('Instantiation', function() {
         const bt = new BinaryTree();
         assert.ok(bt instanceof BinaryTree);
+    });
+
+    it('Post-Order Depth First Traversal iterative', function() {
+        const traversalType = 'dft-post';
+        traversalTest(numTree.tree.constructor.postOrderTraversalIterative,
+            traversalType);
+        traversalTest(charTree.tree.constructor.postOrderTraversalIterative,
+            traversalType);
     });
 });
