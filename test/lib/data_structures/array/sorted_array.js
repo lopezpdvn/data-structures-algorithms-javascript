@@ -60,10 +60,7 @@ describe('Sorted Array', function() {
     });
 
     it('Insertion Sort', function() {
-        const unsortedArr = [9, 6, 2, 5, 1, 0, 10];
-        const sortedArr = [0, 1, 2, 5, 6, 9, 10];
-        SortedArrayNumber.InsertionSort(unsortedArr, unsortedArr.length);
-        assert.deepEqual(sortedArr, unsortedArr);
+        numArraySortingTest(SortedArrayNumber.InsertionSort);
     });
 
     it('Binary Search Recursive', function() {
