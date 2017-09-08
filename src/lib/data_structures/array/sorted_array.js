@@ -40,6 +40,19 @@ class SortedArrayNumber {
             // Invariant: a[o:] sorted
         }
     }
+
+    static SelectionSort(a, n) {
+        for(let o = 0, min = 0; o < n - 1; min = ++o) {
+            for(let i = o + 1; i < n; i++) {
+                if(a[i] < a[min]) {
+                    min = i;
+                }
+            }
+            if(o != min) {
+                [a[o], a[min]] = [a[min], a[o]];
+            }
+        }
+    }
 }
 
 exports.SortedArrayNumber = SortedArrayNumber;

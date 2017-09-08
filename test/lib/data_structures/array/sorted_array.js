@@ -74,4 +74,8 @@ describe('Sorted Array', function() {
     it('Bubble Sort', function() {
         numArraySortingTest(SortedArrayNumber.BubbleSort);
     });
+
+    it('Selection Sort', function() {
+        numArraySortingTest(SortedArrayNumber.SelectionSort);
+    });
 });
