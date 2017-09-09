@@ -31,12 +31,37 @@ describe('Sorted Array', function() {
     });
 
     const numArraySortingTest = sortingAlg => {
-        numSorted.map((sortedArr, i) => {
+        numSorted.forEach((sortedArr, i) => {
             const unsortedArr = numUnsorted[i];
             sortingAlg(unsortedArr, unsortedArr.length);
             assert.deepEqual(unsortedArr, sortedArr);
         });
     }
+
+    const numSortedArrayTest0 = (uArr, sArr) => {
+        const sa = new SortedArrayNumber();
+        assert.strictEqual(sa.count, 0);
+        assert.strictEqual(-1, sa.delete(5));
+        assert.strictEqual(-1, sa.delete(0));
+        assert.strictEqual(sa.count, 0);
+
+        uArr.forEach((x, i) => {
+            sa.insert(x);
+            assert.strictEqual(i+1, sa.count);
+        });
+
+        assert.deepStrictEqual(sArr, [...sa]);
+
+        // Test Binary Search
+        sArr.forEach((x, i) => {
+            let foundIndex = sa.constructor.BinarySearchRecursive(
+                sa.array, x, 0, sa.count-1);
+            assert.strictEqual(foundIndex, i);
+            //foundIndex = sa.constructor.BinarySearchIterative(
+                //sa.array, x, 0, sa.count-1);
+            //assert.strictEqual(foundIndex, i);
+        });
+    };
 
     it('Instantiation', function() {
         const sa = new SortedArrayNumber();
@@ -51,7 +76,6 @@ describe('Sorted Array', function() {
         const sa = new SortedArrayNumber(arrLen);
 
         assert.strictEqual(sa.count, 0);
-        assert.deepEqual(Array.from(sa), initArr);
         for(let x of unsortedArr) {
             sa.insert(x);
         }
@@ -77,5 +101,12 @@ describe('Sorted Array', function() {
 
     it('Selection Sort', function() {
         numArraySortingTest(SortedArrayNumber.SelectionSort);
+    });
+
+    it('SortedArrayNumber Insert/Delete/Search', function() {
+        numSorted.forEach((sArr, i) => {
+            const uArr = numUnsorted[i];
+            numSortedArrayTest0(uArr, sArr);
+        });
     });
 });

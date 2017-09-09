@@ -4,6 +4,10 @@ class SortedArrayNumber {
     constructor(size = 64) {
         this._arr = Array(size).fill(Number());
         this.count = 0;
+
+        Object.defineProperty(this, 'array', {
+            get: () => this._arr
+        });
     }
 
     insert(x) {
@@ -16,8 +20,12 @@ class SortedArrayNumber {
         return i;
     }
 
+    delete(x) {
+        return -1;
+    }
+
     [Symbol.iterator]() {
-        return this._arr[Symbol.iterator]();
+        return this._arr.slice(0, this.count)[Symbol.iterator]();
     }
 
     static InsertionSort(a, n) {
@@ -52,6 +60,27 @@ class SortedArrayNumber {
                 [a[o], a[min]] = [a[min], a[o]];
             }
         }
+    }
+
+
+    static BinarySearchIterative(a, x, min, max) {
+        return BinarySearchRecursive(a, x, min, max);
+    }
+}
+
+SortedArrayNumber.BinarySearchRecursive = function f(a, x, min, max) {
+    if(min > max) {
+        return -1;
+    }
+    const mid = Math.trunc((min + max) / 2);
+    if(x < a[mid]) {
+        return f(a, x, min, mid-1);
+    }
+    else if(x > a[mid]) {
+        return f(a, x, mid+1, max);
+    }
+    else {
+        return mid;
     }
 }
 
