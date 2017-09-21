@@ -21,7 +21,14 @@ class SortedArrayNumber {
     }
 
     delete(x) {
-        return -1;
+        const i = this.BinarySearchRecursive(x);
+        if(i >= 0) {
+            for(let j = i; j < this.count-1; j++) {
+                this._arr[j] = this._arr[j+1];
+            }
+            this.count--;
+        }
+        return i;
     }
 
     [Symbol.iterator]() {
@@ -65,6 +72,11 @@ class SortedArrayNumber {
 
     static BinarySearchIterative(a, x, min, max) {
         return BinarySearchRecursive(a, x, min, max);
+    }
+
+    BinarySearchRecursive(x) {
+        return this.constructor.BinarySearchRecursive(
+            this._arr, x, 0, this.count-1);
     }
 }
 

@@ -54,13 +54,25 @@ describe('Sorted Array', function() {
 
         // Test Binary Search
         sArr.forEach((x, i) => {
-            let foundIndex = sa.constructor.BinarySearchRecursive(
-                sa.array, x, 0, sa.count-1);
+            let foundIndex = sa.BinarySearchRecursive(x);
             assert.strictEqual(foundIndex, i);
+            //foundIndex = sa.BinarySearchIterative(x);
             //foundIndex = sa.constructor.BinarySearchIterative(
                 //sa.array, x, 0, sa.count-1);
             //assert.strictEqual(foundIndex, i);
         });
+
+        assert.strictEqual(-1, sa.BinarySearchRecursive(-9999));
+        //assert.strictEqual(-1, sa.constructor.BinarySearchIterative(-8888));
+
+        // Delete all
+        uArr.forEach((x, i) => {
+            assert.strictEqual(sa.count, uArr.length - i);
+            assert.strictEqual(sa.BinarySearchRecursive(x), sa.delete(x));
+            assert.strictEqual(sa.count, uArr.length - i - 1);
+        });
+
+        assert.strictEqual(sa.count, 0);
     };
 
     it('Instantiation', function() {
