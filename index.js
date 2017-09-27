@@ -20,6 +20,9 @@ exports.data_structures = {
     array: {
         sorted_array: require(SRC_LIB + '/data_structures/array/sorted_array')
     },
+    heap: {
+        binary_heap: require(SRC_LIB + '/data_structures/heap/binary_heap')
+    },
     graph: {
         directed_graph_adjacency_list: require(
             SRC_LIB + '/data_structures/graph/directed_graph_adjacency_list')
