@@ -76,4 +76,12 @@ describe('Binary Tree', function() {
         traversalTest(charTree.tree.constructor.postOrderTraversalIterative,
             traversalType);
     });
+
+    it('Pre-Order Depth First Traversal recursive', function() {
+        const traversalType = 'dft-pre';
+        traversalTest(numTree.tree.constructor.preOrderTraversalRecursive,
+            traversalType);
+        traversalTest(charTree.tree.constructor.preOrderTraversalRecursive,
+            traversalType);
+    });
 });
