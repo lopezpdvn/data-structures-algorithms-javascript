@@ -28,7 +28,7 @@ class DirectedGraphAdjacencyList {
         stack.push(node);
         while(stack.length) {
             node = stack.pop();
-            if(node.state == State.visited)
+            if(node.state === State.visited)
                 continue;
             yield node;
             node.state = State.visited;
@@ -38,22 +38,41 @@ class DirectedGraphAdjacencyList {
         }
     }
 
-    static *breadthFirstTraversal(node, queue = []) {
-        if(!node && node.state == node.visited)
+    static *depthFirstTraversalRecursive(node) {
+        if(!node || node.state === node.visited) {
             return;
+        }
+        yield* DirectedGraphAdjacencyList._depthFirstTraversalRecursive(node);
+    }
+
+    static *breadthFirstTraversal(node, queue = []) {
+        if(!node || node.state === node.visited) {
+            return;
+        }
         yield node;
         node.state = State.visited;
         queue.unshift(node);
         while(queue.length) {
             node = queue.pop();
             for(let i of node) {
-                if(i.state == State.visited)
+                if(i.state === State.visited)
                     continue;
                 yield i;
                 i.state = State.visited;
                 queue.unshift(i);
             }
         }
+    }
+}
+
+DirectedGraphAdjacencyList._depthFirstTraversalRecursive = function* f(node) {
+    yield node;
+    node.state = State.visited;
+    for(let i of node) {
+        if(i.state === State.visited) {
+            continue;
+        }
+        yield* f(i);
     }
 }
 

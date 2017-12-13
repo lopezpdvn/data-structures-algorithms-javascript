@@ -96,6 +96,11 @@ describe('Directed Graph Adjacency List', function() {
             'dft-str');
     });
 
+    it('Depth First Traversal recursive', function() {
+        traversalTest(graph0Graph.constructor.depthFirstTraversalRecursive,
+            'dft-str');
+    });
+
     it('Breadth First Traversal', function() {
         traversalTest(graph0Graph.constructor.breadthFirstTraversal,
             'bft-str');
