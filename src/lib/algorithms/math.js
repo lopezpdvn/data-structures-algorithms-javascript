@@ -12,4 +12,9 @@ function* fibonacciSeq(n) {
     }
 }
 
+const factorial = function f(n) {
+    return n < 2 ? 1 : n*f(n-1);
+}
+
 exports.fibonacciSeq = fibonacciSeq;
+exports.factorial = factorial;
