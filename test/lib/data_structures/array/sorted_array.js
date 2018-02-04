@@ -56,10 +56,8 @@ describe('Sorted Array', function() {
         sArr.forEach((x, i) => {
             let foundIndex = sa.BinarySearchRecursive(x);
             assert.strictEqual(foundIndex, i);
-            //foundIndex = sa.BinarySearchIterative(x);
-            //foundIndex = sa.constructor.BinarySearchIterative(
-                //sa.array, x, 0, sa.count-1);
-            //assert.strictEqual(foundIndex, i);
+            foundIndex = sa.BinarySearchIterative(x);
+            assert.strictEqual(foundIndex, i);
         });
 
         assert.strictEqual(-1, sa.BinarySearchRecursive(-9999));

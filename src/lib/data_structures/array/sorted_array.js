@@ -69,9 +69,25 @@ class SortedArrayNumber {
         }
     }
 
+    BinarySearchIterative(x) {
+        return this.constructor.BinarySearchIterative(
+            this._arr, x, 0, this.count-1);
+    }
 
     static BinarySearchIterative(a, x, min, max) {
-        return BinarySearchRecursive(a, x, min, max);
+        while(min <= max) {
+            const mid = Math.trunc((min+max)/2);
+            if(x < a[mid]) {
+                max = mid - 1;
+            }
+            else if(x > a[mid]) {
+                min = mid + 1;
+            }
+            else {
+                return mid;
+            }
+        }
+        return -1;
     }
 
     BinarySearchRecursive(x) {
