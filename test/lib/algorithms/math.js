@@ -29,3 +29,12 @@ describe('Factorial', function() {
         assert.strictEqual(factorial(6), 720);
     });
 });
+
+describe('Modulo', function() {
+    const modulo = dsalg.algorithms.math.modulo;
+    it('Simple test', function() {
+        assert.strictEqual(modulo(5,2), 5%2);
+        assert.strictEqual(modulo(6,2), 6%2);
+        assert.strictEqual(modulo(1,3), 1%3);
+    });
+});
