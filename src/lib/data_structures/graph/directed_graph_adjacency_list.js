@@ -23,13 +23,15 @@ class DirectedGraphAdjacencyList {
     }
 
     static *depthFirstTraversalIterative(node, stack = []) {
-        if(!node)
+        if(!node) {
             return;
+        }
         stack.push(node);
         while(stack.length) {
             node = stack.pop();
-            if(node.state === State.visited)
+            if(node.state === State.visited) {
                 continue;
+            }
             yield node;
             node.state = State.visited;
             for(let i of node.adjacentReverse()) {
@@ -55,8 +57,9 @@ class DirectedGraphAdjacencyList {
         while(queue.length) {
             node = queue.pop();
             for(let i of node) {
-                if(i.state === State.visited)
+                if(i.state === State.visited) {
                     continue;
+                }
                 yield i;
                 i.state = State.visited;
                 queue.unshift(i);
