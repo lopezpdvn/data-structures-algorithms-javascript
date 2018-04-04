@@ -48,7 +48,7 @@ class DirectedGraphAdjacencyList {
     }
 
     static *breadthFirstTraversal(node, queue = []) {
-        if(!node || node.state === node.visited) {
+        if(!node || node.state === State.visited) {
             return;
         }
         yield node;
