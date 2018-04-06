@@ -36,6 +36,15 @@ BinaryTree.preOrderTraversalRecursive = function* f(node) {
     yield* f(node.right);
 }
 
+BinaryTree.inOrderTraversalRecursive = function* f(node) {
+    if(!node) {
+        return;
+    }
+    yield* f(node.left);
+    yield node;
+    yield* f(node.right);
+}
+
 class Node {
     constructor(vertex = null, left = null, right = null) {
         this.vertex = vertex;
