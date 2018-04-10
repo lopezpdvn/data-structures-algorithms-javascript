@@ -92,4 +92,12 @@ describe('Binary Tree', function() {
         traversalTest(charTree.tree.constructor.inOrderTraversalRecursive,
             traversalType);
     });
+
+    it('In-Order Depth First Traversal iterative', function() {
+        const traversalType = 'dft-in';
+        traversalTest(numTree.tree.constructor.inOrderTraversalIterative,
+            traversalType);
+        traversalTest(charTree.tree.constructor.inOrderTraversalIterative,
+            traversalType);
+    });
 });

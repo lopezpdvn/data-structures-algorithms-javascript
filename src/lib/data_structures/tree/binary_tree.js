@@ -25,6 +25,20 @@ class BinaryTree {
             }
         }
     }
+
+    static *inOrderTraversalIterative(node, stack = []) {
+        while(stack.length || node) {
+            if(node) {
+                stack.push(node);
+                node = node.left;
+            }
+            else {
+                node = stack.pop();
+                yield node;
+                node = node.right;
+            }
+        }
+    }
 }
 
 BinaryTree.preOrderTraversalRecursive = function* f(node) {
