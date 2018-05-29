@@ -63,7 +63,7 @@ class SortedArrayNumber {
                     min = i;
                 }
             }
-            if(o != min) {
+            if(o !== min) {
                 [a[o], a[min]] = [a[min], a[o]];
             }
         }
