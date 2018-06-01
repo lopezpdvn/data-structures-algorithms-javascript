@@ -100,4 +100,12 @@ describe('Binary Tree', function() {
         traversalTest(charTree.tree.constructor.inOrderTraversalIterative,
             traversalType);
     });
+
+    it('Breadth First Traversal', function() {
+        const traversalType = 'bft';
+        traversalTest(numTree.tree.constructor.breadthFirstTraversal,
+            traversalType);
+        traversalTest(charTree.tree.constructor.breadthFirstTraversal,
+            traversalType);
+    });
 });

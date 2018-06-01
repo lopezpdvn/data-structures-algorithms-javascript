@@ -39,6 +39,21 @@ class BinaryTree {
             }
         }
     }
+
+    static *breadthFirstTraversal(node, queue = []) {
+        if(!node) {
+            return;
+        }
+        yield node;
+        queue.unshift(node);
+        while(queue.length) {
+            node = queue.pop();
+            for(let i of node) {
+                yield i;
+                queue.unshift(i);
+            }
+        }
+    }
 }
 
 BinaryTree.preOrderTraversalRecursive = function* f(node) {
@@ -64,6 +79,15 @@ class Node {
         this.vertex = vertex;
         this.left = left;
         this.right = right;
+    }
+
+    *[Symbol.iterator]() {
+        if(this.left) {
+            yield this.left;
+        }
+        if(this.right) {
+            yield this.right;
+        }
     }
 }
 
