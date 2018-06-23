@@ -5,6 +5,20 @@ class BinaryTree {
         this.root = root;
     }
 
+    static *preOrderTraversalIterative(node, stack = []) {
+        if(!node) {
+            return;
+        }
+        stack.push(node);
+        while(stack.length) {
+            node = stack.pop();
+            yield node;
+            for(let i of node.adjacentReverse()) {
+                stack.push(i);
+            }
+        }
+    }
+
     static *postOrderTraversalIterative(node, stack = []) {
         let last = null;
         while(node || stack.length) {
@@ -87,6 +101,15 @@ class Node {
         }
         if(this.right) {
             yield this.right;
+        }
+    }
+
+    *adjacentReverse() {
+        if(this.right) {
+            yield this.right;
+        }
+        if(this.left) {
+            yield this.left;
         }
     }
 }
