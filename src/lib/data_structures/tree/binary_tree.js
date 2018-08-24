@@ -27,7 +27,7 @@ class BinaryTree {
                 node = node.left;
             }
             else {
-                let peek = stack[stack.length-1];
+                const peek = stack[stack.length-1];
                 if(peek.right && peek.right !== last) {
                     node = peek.right;
                 }
